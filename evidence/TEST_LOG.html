@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MOB_A1_G03 test log</title>
+  <style>
+    @page { size: A4; margin: 16mm; }
+    body { font-family: "Segoe UI", Calibri, Arial, sans-serif; color: #1A1A1A; font-size: 11pt; line-height: 1.4; }
+    h1 { font-size: 18pt; color: #1B4D3E; margin-bottom: 4px; }
+    h2 { font-size: 13pt; color: #1B4D3E; margin-top: 18px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border: 1px solid #C9C2B4; padding: 6px 8px; text-align: left; vertical-align: top; }
+    th { background: #E7F0EC; }
+    .note { background: #F4F1EA; padding: 8px 10px; }
+  </style>
+</head>
+<body>
+  <h1>Test log — MOB-G03-7014</h1>
+  <p>SWE 3409 Assignment 1. Musanze Safe Markets. Tester role: Member 4, Mohammed Osama Hasan, with release notes by Member 5.</p>
+  <p>Environment: Windows 11, Node.js 22.23.2, npm 10.9.8, Expo SDK 57, Expo Go, start command <strong>npm start</strong> (tunnel).</p>
+
+  <h2>Checks completed on the computer</h2>
+  <table>
+    <tr><th>Check</th><th>Result</th></tr>
+    <tr><td>TypeScript <code>npx tsc --noEmit</code></td><td>Passed after the camera workflow was added.</td></tr>
+    <tr><td>Validation script <code>src/validation/inspection.check.ts</code></td><td>Passed. One valid inspection accepted. Eight invalid cases rejected: blank form, A14, mz-a-014, MZ-G-001, 0788123456, +250 688 123 456, missing consent, missing image.</td></tr>
+  </table>
+
+  <h2>Checks completed on a phone</h2>
+  <table>
+    <tr><th>Check</th><th>Result</th></tr>
+    <tr><td>Expo Go opens the project</td><td>Passed after starting with a tunnel. A direct LAN address on campus Wi-Fi failed with “Failed to download remote update”. Metro then served the bundle to an iPhone.</td></tr>
+    <tr><td>Group code visible</td><td>Header is implemented as MOB-G03-7014. Confirm again in the demonstration video.</td></tr>
+  </table>
+
+  <h2>Still to record on the device</h2>
+  <div class="note">
+    These rows are not marked passed. The group must run them while recording <code>evidence/MOB_A1_G03_DEMO.mp4</code> and then update this log if the lecturer requires a completed device table.
+  </div>
+  <table>
+    <tr><th>Assessor step</th><th>What to observe</th><th>Result</th></tr>
+    <tr><td>Catalog</td><td>Six stalls, status chips, priority words, search empty state</td><td>Not recorded in this file</td></tr>
+    <tr><td>Invalid form</td><td>At least two field errors block review</td><td>Not recorded in this file</td></tr>
+    <tr><td>Valid form</td><td>Mama Keza, MZ-A-014, Produce, +250 788 123 456, High, consent, one photo, then review</td><td>Not recorded in this file</td></tr>
+    <tr><td>Navigation</td><td>All tabs, detail stack, back keeps the in-memory list</td><td>Not recorded in this file</td></tr>
+    <tr><td>Permission denied</td><td>Useful message and the other photo source still works</td><td>Not recorded in this file</td></tr>
+    <tr><td>Image</td><td>Capture or gallery, preview, replace, remove</td><td>Not recorded in this file</td></tr>
+    <tr><td>Large font</td><td>Text wraps and stays readable</td><td>Not recorded in this file</td></tr>
+  </table>
+</body>
+</html>
