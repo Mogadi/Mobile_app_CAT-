@@ -23,14 +23,14 @@ The app runs in Expo Go. It has no backend. Vendor names and phone numbers in th
 
 ## Run
 
-Tested on Windows 11, Node.js 22.23.2, npm 10.9.8, Expo SDK 57. Open the project in Expo Go on Android or iOS. On this network the phone cannot reach the computer directly, so start with the tunnel.
+Tested on Windows 11, Node.js 22.23.2, npm 10.9.8, Expo SDK 57. Open the project in Expo Go on Android or iOS. Sign in to the same Expo account on the computer and in Expo Go.
 
 ```bash
 npm install
 npm start
 ```
 
-`npm start` runs `expo start --tunnel`. Wait until the QR code appears, then scan it from inside Expo Go. Sign in to the same Expo account on the computer and in Expo Go.
+`npm start` opens an Expo tunnel because this Wi-Fi blocks a direct connection from the phone. Scan the QR code from inside Expo Go.
 
 ## What the app does
 
@@ -61,7 +61,7 @@ MOB_A1_G03/
 
 - Inspections disappear when the app process stops. There is no database or server.
 - The demonstration video and phone screenshots still have to be recorded by the group and placed in `evidence/` and `screenshots/`.
-- Campus Wi-Fi blocks a direct phone connection, so the tested start command uses a tunnel.
+- This Wi-Fi blocks a direct phone connection, and ngrok did not finish connecting. `npm start` uses Expo's tunnel instead.
 - The validation script in `src/validation/inspection.check.ts` checks the form rules on the computer. It does not replace the device test in `evidence/TEST_LOG.pdf`.
 
 ## Moodle text
