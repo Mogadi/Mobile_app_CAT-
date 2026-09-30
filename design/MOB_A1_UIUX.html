@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MOB_A1_G03_UIUX — Musanze Safe Markets</title>
+  <style>
+    @page { size: A4; margin: 14mm 14mm 16mm 14mm; }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      color: #1A1A1A;
+      background: #fff;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.4;
+    }
+    h1 { font-size: 20pt; line-height: 1.2; margin: 0 0 6px; }
+    h2 { font-size: 14pt; margin: 0 0 8px; color: #1B4D3E; }
+    h3 { font-size: 12pt; margin: 12px 0 4px; }
+    p { margin: 0 0 8px; }
+    .page { page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+    .kicker {
+      font-size: 9pt;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #5C574E;
+      margin-bottom: 4px;
+    }
+    .code {
+      display: inline-block;
+      background: #1B4D3E;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; }
+    th, td { border: 1px solid #C9C2B4; padding: 5px 7px; text-align: left; vertical-align: top; }
+    th { background: #E7F0EC; font-weight: 650; }
+    .note {
+      background: #F4F1EA;
+      border-left: 4px solid #C45C26;
+      padding: 8px 10px;
+      margin: 8px 0 12px;
+    }
+    .fill { color: #9B2335; font-weight: 700; }
+    ul { margin: 4px 0 8px; padding-left: 18px; }
+    li { margin-bottom: 3px; }
+
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      margin: 8px 0 12px;
+    }
+    .step {
+      background: #E7F0EC;
+      border: 1px solid #1B4D3E;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 9.5pt;
+      max-width: 140px;
+    }
+    .arrow { color: #1B4D3E; font-weight: 700; }
+
+    .phones { display: flex; gap: 12px; align-items: flex-start; }
+    .phone {
+      width: 210px;
+      border: 2px solid #1A1A1A;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #F4F1EA;
+      font-size: 8pt;
+    }
+    .bar {
+      background: #1B4D3E;
+      color: #fff;
+      padding: 6px 8px;
+      font-size: 7.5pt;
+    }
+    .screen { padding: 8px; min-height: 250px; }
+    .card {
+      background: #fff;
+      border: 1px solid #C9C2B4;
+      border-radius: 6px;
+      padding: 6px;
+      margin-bottom: 6px;
+      display: flex;
+      gap: 6px;
+    }
+    .ph {
+      width: 36px;
+      height: 36px;
+      background: #D9D3C7;
+      border-radius: 4px;
+      flex: none;
+    }
+    .chip {
+      display: inline-block;
+      border-radius: 99px;
+      padding: 1px 6px;
+      font-size: 7pt;
+      font-weight: 700;
+      border: 1px solid currentColor;
+    }
+    .open { color: #1B6B3A; background: #E5F5EB; }
+    .pending { color: #8A5A00; background: #FFF4D6; }
+    .flagged { color: #9B2335; background: #FDE8EC; }
+    .closed { color: #5C574E; background: #EEEAE3; }
+    .field {
+      background: #fff;
+      border: 1px solid #8A8175;
+      border-radius: 4px;
+      padding: 4px 6px;
+      margin-bottom: 4px;
+    }
+    .err { color: #9B2335; font-size: 7pt; margin: -2px 0 4px; }
+    .btn {
+      background: #1B4D3E;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 6px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+    .btn.ghost {
+      background: #fff;
+      color: #1B4D3E;
+      border: 1px solid #1B4D3E;
+    }
+    .tabs {
+      display: flex;
+      border-top: 1px solid #C9C2B4;
+      background: #fff;
+    }
+    .tabs span { flex: 1; text-align: center; padding: 5px 2px; font-size: 7pt; }
+    .tabs .on { color: #1B4D3E; font-weight: 700; border-top: 2px solid #1B4D3E; }
+    .anno { font-size: 8.5pt; color: #3D3933; flex: 1; }
+    .anno strong { color: #1B4D3E; }
+    .swatches { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 10px; }
+    .sw { width: 92px; }
+    .sw i {
+      display: block;
+      height: 36px;
+      border-radius: 4px;
+      border: 1px solid #C9C2B4;
+    }
+    .sw b { display: block; font-size: 8pt; margin-top: 2px; }
+    .sw span { font-size: 8pt; color: #5C574E; }
+    .footer-note { font-size: 8.5pt; color: #5C574E; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+<section class="page">
+  <p class="kicker">INES-Ruhengeri · SWE 3409 · Assignment 1 · UI and UX design</p>
+  <h1>Musanze Safe Markets<br>Field Inspection Prototype</h1>
+  <p>Group number <strong>03</strong> · Group verification code <span class="code">MOB-G03-7014</span></p>
+  <div class="note">
+    Group leader: Mohammed Osama Hasan, 25/27014. The code is group 03 plus the last four digits of that registration number. The same code must appear in the app header and on the review screen.
+  </div>
+
+  <h2>1. Cover and scenario</h2>
+  <table>
+    <tr><th>Role</th><th>Name</th><th>Registration number</th></tr>
+    <tr><td>Member 1 — Product and UX lead</td><td>Nuzha ZainEl-Abdeen Mohammed Ismail</td><td>25/27419</td></tr>
+    <tr><td>Member 2 — Interface engineer</td><td>Ehab Fakhralden Mohamed Hamid</td><td>25/27950</td></tr>
+    <tr><td>Member 3 — State and navigation engineer</td><td>Mojtaba Abdalitieef Ahmed</td><td>25/27660</td></tr>
+    <tr><td>Member 4 — Device integration and QA lead. Group leader.</td><td>Mohammed Osama Hasan</td><td>25/27014</td></tr>
+    <tr><td>Member 5 — Release and evidence lead</td><td>Lazarus Simboya Ira Inyasio</td><td>25/28180</td></tr>
+  </table>
+
+  <h3>Problem statement</h3>
+  <p>Musanze Safe Markets is running a one-day pilot. A field officer must see the assigned market zones, record one fictional vendor inspection, and attach one evidence photo. There is no server. Names and phone numbers in the demo are fictional. The record lives only in the phone’s memory for this session.</p>
+
+  <h3>Target field officer</h3>
+  <p>Primary user: a market field officer walking between stalls with one hand free, often in bright sun, using Expo Go on an Android phone. They are not a designer. They need the next step to be obvious, errors to say what to fix, and the group code visible so the assessor can confirm the right build.</p>
+
+  <h3>What this document owns</h3>
+  <p>Member 1 defines the scenario, the task flow, the route map, the wireframes, the visual system, and the accessibility rules. Members 2, 3, and 4 implement those rules. The built app must match this document.</p>
+</section>
+
+<section class="page">
+  <p class="kicker">Page 2 · User and task flow</p>
+  <h2>2. User and task flow</h2>
+  <p><strong>Primary user.</strong> Field officer on the Musanze Safe Markets pilot.</p>
+  <p><strong>Goal.</strong> Register one fictional stall inspection and keep it in an in-memory list that can be opened again from Records.</p>
+  <p><strong>Constraints.</strong> Expo Go on Android. No backend, database, API key, or real personal data. Larger system font and a narrow screen must stay usable. Invalid input must not reach the saved list.</p>
+
+  <h3>Happy path</h3>
+  <div class="flow">
+    <div class="step">1. Open app. Read group code in the header.</div>
+    <span class="arrow">→</span>
+    <div class="step">2. Home shows six stalls. Officer checks name, status, priority.</div>
+    <span class="arrow">→</span>
+    <div class="step">3. New Inspection. Fill alias, stall code, category, phone, risk, consent.</div>
+    <span class="arrow">→</span>
+    <div class="step">4. Capture or pick one photo. Preview it.</div>
+    <span class="arrow">→</span>
+    <div class="step">5. Review shows fields, photo, time, group code.</div>
+    <span class="arrow">→</span>
+    <div class="step">6. Save. Records lists it. Details opens it. Back keeps the list.</div>
+  </div>
+
+  <h3>Alternate paths the assessor will try</h3>
+  <ul>
+    <li><strong>Empty catalog.</strong> The officer types a search that matches nothing. The list is replaced by an empty state with a way to clear the search.</li>
+    <li><strong>Invalid form.</strong> Blank fields, a stall code that breaks the pattern, a phone that is not a fictional Rwanda mobile number, or missing consent. Each fault shows a message under that field. Review does not open.</li>
+    <li><strong>Permission denied.</strong> The camera or gallery permission is refused. The form stays. A short message explains what happened and offers Try again. The other source (camera or gallery) remains available.</li>
+    <li><strong>Picker cancelled.</strong> The officer backs out of the camera or gallery. Message: “No image selected. You can try again.” Nothing else is cleared.</li>
+    <li><strong>Replace or remove.</strong> After a preview, Replace opens the source again. Remove clears the preview and blocks Review until a new image is attached.</li>
+    <li><strong>Back.</strong> From Details, back returns to Records with the same in-memory list. Switching tabs does not wipe the form or the saved records.</li>
+  </ul>
+</section>
+
+<section class="page">
+  <p class="kicker">Page 3 · Information architecture</p>
+  <h2>3. Information architecture</h2>
+  <p>Bottom tabs are the three jobs. A stack sits above the tabs so Details and Review can be pushed and popped without losing the session.</p>
+
+  <table>
+    <tr><th>Route name</th><th>Where</th><th>What is passed</th></tr>
+    <tr><td>MainTabs</td><td>Root stack, first screen</td><td>None. Reads the in-memory session.</td></tr>
+    <tr><td>Home</td><td>Tab</td><td>None. Reads the fixed catalog of six zones.</td></tr>
+    <tr><td>NewInspection</td><td>Tab</td><td>None. Local form state. On success, navigates to Review with the draft.</td></tr>
+    <tr><td>Records</td><td>Tab</td><td>None. Reads the in-memory inspection list.</td></tr>
+    <tr><td>Review</td><td>Stack screen</td><td>InspectionDraft: all validated fields plus image URI.</td></tr>
+    <tr><td>InspectionDetail</td><td>Stack screen from Records</td><td>inspectionId: string. The screen looks up the record in memory.</td></tr>
+  </table>
+
+  <h3>Catalog record (fixed, fictional)</h3>
+  <table>
+    <tr><th>Name</th><th>Category</th><th>Status</th><th>Priority</th></tr>
+    <tr><td>Kinigi Produce Row</td><td>Produce</td><td>Open</td><td>High</td></tr>
+    <tr><td>Muhoza Grain Shed</td><td>Grains</td><td>Pending</td><td>Medium</td></tr>
+    <tr><td>Cyuve Meat Corner</td><td>Meat</td><td>Flagged</td><td>High</td></tr>
+    <tr><td>Busogo Clothing Lane</td><td>Clothing</td><td>Open</td><td>Low</td></tr>
+    <tr><td>Kimonyi Household Bay</td><td>Household</td><td>Closed</td><td>Low</td></tr>
+    <tr><td>Musanze Cooked Food</td><td>Cooked food</td><td>Pending</td><td>Medium</td></tr>
+  </table>
+  <p>Every card also has a grey image placeholder with a short text label, for example “Produce stalls”. The catalog is not editable.</p>
+
+  <h3>Inspection the officer types</h3>
+  <ul>
+    <li><strong>Vendor alias</strong> — required, at least 2 characters. Example: Mama Keza.</li>
+    <li><strong>Stall code</strong> — required, exact pattern <strong>MZ-[A-F]-NNN</strong>. Example: MZ-A-014. Letters A to F only. Three digits.</li>
+    <li><strong>Category</strong> — required, one of Produce, Grains, Meat, Clothing, Household, Cooked food.</li>
+    <li><strong>Contact number</strong> — required, fictional Rwanda mobile: <strong>+250 7XX XXX XXX</strong>. Example: +250 788 123 456.</li>
+    <li><strong>Risk level</strong> — required, Low, Medium, or High.</li>
+    <li><strong>Consent</strong> — required checkbox: “I confirm this record uses fictional demo data only.”</li>
+    <li><strong>Evidence image</strong> — required before Review. One photo from the camera or the gallery.</li>
+  </ul>
+  <p>On Save, the app adds an id and an ISO timestamp and appends the record to the in-memory list. Leaving the app may clear that list. That limit is acceptable for this assignment.</p>
+</section>
+
+<section class="page">
+  <p class="kicker">Page 4 · Wireframes</p>
+  <h2>4. Wireframes — catalog and form</h2>
+  <div class="phones">
+    <div>
+      <div class="phone">
+        <div class="bar">Musanze Safe Markets<br>MOB-G03-7014</div>
+        <div class="screen">
+          <div class="field">Search stalls</div>
+          <div class="card"><div class="ph"></div><div><b>Kinigi Produce Row</b><br>Produce · High<br><span class="chip open">Open</span></div></div>
+          <div class="card"><div class="ph"></div><div><b>Muhoza Grain Shed</b><br>Grains · Medium<br><span class="chip pending">Pending</span></div></div>
+          <div class="card"><div class="ph"></div><div><b>Cyuve Meat Corner</b><br>Meat · High<br><span class="chip flagged">Flagged</span></div></div>
+        </div>
+        <div class="tabs"><span class="on">Home</span><span>New Inspection</span><span>Records</span></div>
+      </div>
+      <p class="anno"><strong>Home.</strong> Header holds the group code. Search filters the six cards. Cards are one reusable component. Status is a word inside a chip, not colour alone. Priority is written out.</p>
+    </div>
+    <div>
+      <div class="phone">
+        <div class="bar">Musanze Safe Markets<br>MOB-G03-7014</div>
+        <div class="screen">
+          <div class="field">Search: zzzzz</div>
+          <p><b>No stalls match</b></p>
+          <p>Nothing in today’s pilot uses that name.</p>
+          <div class="btn ghost">Clear search</div>
+        </div>
+        <div class="tabs"><span class="on">Home</span><span>New Inspection</span><span>Records</span></div>
+      </div>
+      <p class="anno"><strong>Empty state.</strong> Reachable by typing a search with no match. The message names the cause. Clear search restores the six cards. This is how test 2 shows the empty state.</p>
+    </div>
+    <div>
+      <div class="phone">
+        <div class="bar">Musanze Safe Markets<br>MOB-G03-7014</div>
+        <div class="screen">
+          <div class="field">Vendor alias</div>
+          <div class="err">Enter at least 2 characters.</div>
+          <div class="field">Stall code · MZ-A-014</div>
+          <div class="err">Use MZ-A-014 style: MZ, A–F, three digits.</div>
+          <div class="field">Category</div>
+          <div class="field">+250 7__ ___ ___</div>
+          <div class="err">Use +250 7XX XXX XXX.</div>
+          <div class="field">Risk · Low / Medium / High</div>
+          <div class="field">☐ Fictional data consent</div>
+          <div class="btn">Continue to review</div>
+        </div>
+        <div class="tabs"><span>Home</span><span class="on">New Inspection</span><span>Records</span></div>
+      </div>
+      <p class="anno"><strong>Form.</strong> Every error sits under its own field. The button stays, but it does not navigate while anything is invalid. Helper text shows one correct example.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <p class="kicker">Page 5 · Wireframes</p>
+  <h2>5. Wireframes — image, review, records</h2>
+  <div class="phones">
+    <div>
+      <div class="phone">
+        <div class="bar">Evidence photo</div>
+        <div class="screen">
+          <div class="ph" style="width:100%;height:90px"></div>
+          <p>Preview of the selected stall photo.</p>
+          <div class="btn">Replace photo</div>
+          <div class="btn ghost">Remove photo</div>
+          <p class="err">If denied: Camera access is off. Try again, or choose a gallery photo.</p>
+          <p>If cancelled: No image selected. You can try again.</p>
+        </div>
+      </div>
+      <p class="anno"><strong>Image states.</strong> Empty, preview, replace, remove, denied, cancelled. Denied and cancelled never wipe the other form fields.</p>
+    </div>
+    <div>
+      <div class="phone">
+        <div class="bar">Review inspection<br>MOB-G03-7014</div>
+        <div class="screen">
+          <p><b>Mama Keza</b><br>MZ-A-014 · Produce<br>+250 788 123 456<br>Risk: High<br>Consent: Yes</p>
+          <div class="ph" style="width:100%;height:70px"></div>
+          <p>Saved at 30 Sep 2026, 14:05</p>
+          <div class="btn">Save inspection</div>
+          <div class="btn ghost">Back to edit</div>
+        </div>
+      </div>
+      <p class="anno"><strong>Review.</strong> Shows every validated field, the image, the timestamp, and the group code again. Save is the only way into the Records list.</p>
+    </div>
+    <div>
+      <div class="phone">
+        <div class="bar">Records<br>MOB-G03-7014</div>
+        <div class="screen">
+          <div class="card"><div><b>Mama Keza</b><br>MZ-A-014 · High<br>30 Sep 2026, 14:05</div></div>
+          <p style="margin-top:40px"><b>Detail</b><br>Same fields, photo, time, group code. Back returns here.</p>
+        </div>
+        <div class="tabs"><span>Home</span><span>New Inspection</span><span class="on">Records</span></div>
+      </div>
+      <p class="anno"><strong>Records and detail.</strong> Records is a tab. Tapping a row pushes InspectionDetail. The list is still there when the officer comes back. An empty Records list says “No inspections saved in this session.”</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <p class="kicker">Page 6 · Visual design</p>
+  <h2>6. Visual system</h2>
+  <p>The palette is a deep market green on warm paper, chosen so text stays readable outdoors. Colour supports the label. It never replaces it.</p>
+  <div class="swatches">
+    <div class="sw"><i style="background:#1B4D3E"></i><b>Primary</b><span>#1B4D3E</span></div>
+    <div class="sw"><i style="background:#F4F1EA"></i><b>Background</b><span>#F4F1EA</span></div>
+    <div class="sw"><i style="background:#FFFFFF"></i><b>Surface</b><span>#FFFFFF</span></div>
+    <div class="sw"><i style="background:#1A1A1A"></i><b>Text</b><span>#1A1A1A</span></div>
+    <div class="sw"><i style="background:#5C574E"></i><b>Muted</b><span>#5C574E</span></div>
+    <div class="sw"><i style="background:#C45C26"></i><b>Accent</b><span>#C45C26</span></div>
+    <div class="sw"><i style="background:#1B6B3A"></i><b>Open</b><span>#1B6B3A</span></div>
+    <div class="sw"><i style="background:#8A5A00"></i><b>Pending</b><span>#8A5A00</span></div>
+    <div class="sw"><i style="background:#9B2335"></i><b>Flagged / error</b><span>#9B2335</span></div>
+  </div>
+
+  <h3>Type</h3>
+  <p>Use the phone’s system font so the Android font-scale test can enlarge it. Do not lock text in fixed-height boxes.</p>
+  <table>
+    <tr><th>Role</th><th>Size at default scale</th><th>Weight</th><th>Use</th></tr>
+    <tr><td>Screen title</td><td>22</td><td>700</td><td>Home, form, review titles</td></tr>
+    <tr><td>Card title</td><td>17</td><td>700</td><td>Stall name, vendor alias</td></tr>
+    <tr><td>Body</td><td>16</td><td>400</td><td>Fields, helper text, review rows</td></tr>
+    <tr><td>Meta</td><td>14</td><td>400</td><td>Category, time, group code line</td></tr>
+  </table>
+
+  <h3>Spacing and touch</h3>
+  <ul>
+    <li>Screen padding 16. Gap between cards 12. Card padding 12.</li>
+    <li>Buttons and list rows at least 48 high. Gap between two buttons 8.</li>
+    <li>Corner radius 8 on cards and buttons. Chips are fully rounded.</li>
+    <li>One filled primary button per screen. Secondary actions are outlined.</li>
+  </ul>
+</section>
+
+<section class="page">
+  <p class="kicker">Page 7 · Components the app must match</p>
+  <h2>7. Components</h2>
+  <table>
+    <tr><th>Component</th><th>Looks like</th><th>Rules</th></tr>
+    <tr><td>App header</td><td>Green bar, white title, group code under the title</td><td>Present on every tab and on Review</td></tr>
+    <tr><td>Stall card</td><td>White card, grey placeholder, name, category, priority word, status chip</td><td>Same component for all six zones</td></tr>
+    <tr><td>Status chip</td><td>Open green, Pending amber, Flagged red, Closed grey</td><td>Text is always visible. Border plus fill.</td></tr>
+    <tr><td>Text field</td><td>White box, 1 px border, label above, error below in Flagged red</td><td>Controlled input. Error clears when that field becomes valid.</td></tr>
+    <tr><td>Choice row</td><td>Category list and Low / Medium / High</td><td>Selected row uses primary border and a written “Selected”</td></tr>
+    <tr><td>Primary button</td><td>Filled #1B4D3E, white label</td><td>Disabled look only after a failed attempt is not enough: explain the errors</td></tr>
+    <tr><td>Photo block</td><td>Full-width preview, Replace, Remove</td><td>Empty state offers Capture and Choose from gallery</td></tr>
+  </table>
+  <div class="note">
+    Final mockups are these wireframes with the colours, type, and spacing on page 6 applied. Do not invent a second visual style in code. If a screen in the app disagrees with this document, change the app or update this PDF in the same commit so they still match.
+  </div>
+  <p><strong>Home at a glance.</strong> Warm background, green header with MOB-G03-7014, search field, six white cards. High-priority stalls are not a different layout. Priority is the word High, Medium, or Low so a quick scan still works when colours wash out in sun.</p>
+  <p><strong>Review at a glance.</strong> Same header. A definition list of the six answers, the photo, the local timestamp, then Save inspection. The group code is in the header and repeated beside the timestamp.</p>
+</section>
+
+<section class="page">
+  <p class="kicker">Page 8 · Accessibility and design decisions</p>
+  <h2>8. Accessibility and three decisions</h2>
+  <ul>
+    <li><strong>Contrast.</strong> Body text #1A1A1A on #FFFFFF and on #F4F1EA. Primary button is white on #1B4D3E. Error text #9B2335 is also paired with the words of the message.</li>
+    <li><strong>Touch targets.</strong> Buttons, tabs, cards, and the consent row are at least 48 by 48.</li>
+    <li><strong>Font scale.</strong> Layout is Flexbox with wrapping text. No clipped single-line chips. The assessor will enlarge the device font.</li>
+    <li><strong>Errors.</strong> Each message names the field and the expected pattern. Example: “Stall code must look like MZ-A-014.”</li>
+    <li><strong>Not colour alone.</strong> Status chips include the word Open, Pending, Flagged, or Closed.</li>
+  </ul>
+
+  <h3>Decision 1 — Search is how the empty state appears</h3>
+  <p>The pilot always has six assigned stalls, so a permanently empty home would be false. A search box lets the officer narrow the list and lets the assessor reach a real empty state. Clear search puts the six stalls back. Justified because test 2 asks for six records and an empty state in the same catalog.</p>
+
+  <h3>Decision 2 — The photo is required before Review</h3>
+  <p>The scenario says the officer documents the stall with one evidence image, and the review screen must show that image. The form therefore blocks Review until a preview exists. Permission denial and cancellation stay on the form with a recovery message, so a refused camera does not trap the officer: they can try again or use the gallery.</p>
+
+  <h3>Decision 3 — One exact stall-code pattern, shown on the field</h3>
+  <p>The brief asks for an exact stall code pattern but does not print one. The product uses MZ-[A-F]-NNN so every zone letter in the catalog (A through F) can match a stall, and the officer can see a correct example under the field. The same pattern is what Member 3 validates. Unseen wrong codes such as A14, mz-a-14, or MZ-G-001 fail.</p>
+
+  <p class="footer-note">Member 1 evidence: this document is the owned design. Implementation must follow design/SCREEN_SPEC.md. Export this file as MOB_A1_G03_UIUX.pdf.</p>
+</section>
+
+</body>
+</html>
