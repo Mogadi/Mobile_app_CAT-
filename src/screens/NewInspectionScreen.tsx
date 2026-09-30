@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { AppHeader } from '../components/AppHeader';
 import { ChoiceField } from '../components/ChoiceField';
 import { TextField } from '../components/TextField';
+import { EvidencePhotoField } from '../media/EvidencePhotoField';
 import { RootStackParamList } from '../navigation/types';
 import { useInspectionSession } from '../state/InspectionSession';
 import { colors, space, type } from '../theme/tokens';
@@ -90,13 +91,11 @@ export function NewInspectionScreen() {
           <Text style={styles.consentText}>I confirm this record uses fictional demo data only.</Text>
         </Pressable>
         {errors.consent ? <Text style={styles.error}>{errors.consent}</Text> : null}
-        <View style={styles.photo}>
-          <Text style={styles.photoLabel}>Evidence photo</Text>
-          <Text style={styles.hint}>
-            {draft.imageUri ? 'A preview is attached.' : 'A photo is required before review.'}
-          </Text>
-          {errors.imageUri ? <Text style={styles.error}>{errors.imageUri}</Text> : null}
-        </View>
+        <EvidencePhotoField
+          imageUri={draft.imageUri}
+          error={errors.imageUri}
+          onChange={(uri) => change('imageUri', uri)}
+        />
         <Pressable accessibilityRole="button" onPress={continueToReview} style={styles.button}>
           <Text style={styles.buttonText}>Continue to review</Text>
         </Pressable>
@@ -136,18 +135,6 @@ const styles = StyleSheet.create({
     flex: 1,
     color: colors.text,
     fontSize: type.body,
-  },
-  photo: {
-    gap: 4,
-  },
-  photoLabel: {
-    color: colors.text,
-    fontSize: type.body,
-    fontWeight: '700',
-  },
-  hint: {
-    color: colors.muted,
-    fontSize: type.meta,
   },
   error: {
     color: colors.flagged,

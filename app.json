@@ -20,6 +20,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Musanze Safe Markets uses one fictional stall photo from your gallery.",
+          "cameraPermission": "Musanze Safe Markets uses the camera to photograph a stall."
+        }
+      ]
+    ]
   }
 }
