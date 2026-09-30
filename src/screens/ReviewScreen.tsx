@@ -3,6 +3,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppHeader } from '../components/AppHeader';
 import { GROUP_CODE } from '../constants/group';
+import { EVIDENCE_SUPPORT } from '../constants/team';
 import { RootStackParamList } from '../navigation/types';
 import { useInspectionSession } from '../state/InspectionSession';
 import { colors, space, type } from '../theme/tokens';
@@ -53,6 +54,9 @@ export function ReviewScreen({ navigation, route }: Props) {
         ) : null}
         <Text style={styles.body}>Recorded at {recordedAt}</Text>
         <Text style={styles.code}>{GROUP_CODE}</Text>
+        <Text style={styles.support}>
+          {EVIDENCE_SUPPORT.role}: {EVIDENCE_SUPPORT.name}
+        </Text>
         <Pressable accessibilityRole="button" onPress={save} style={styles.button}>
           <Text style={styles.buttonText}>Save inspection</Text>
         </Pressable>
@@ -93,6 +97,10 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: type.meta,
     letterSpacing: 0.6,
+  },
+  support: {
+    color: colors.muted,
+    fontSize: type.meta,
   },
   photo: {
     width: '100%',

@@ -11,6 +11,7 @@ Group number: 03. Verification code: `MOB-G03-7014`. Group leader: Mohammed Osam
 | 3 | Mojtaba Abdalitieef Ahmed | 25/27660 | Form, validation, navigation |
 | 4 | Mohammed Osama Hasan | 25/27014 | Camera, gallery, QA. Group leader. |
 | 5 | Lazarus Simboya Ira Inyasio | 25/28180 | Release and evidence |
+| Support | Feras Saifaddin Ismail Mohammed | 25/27916 | Demonstration video, screenshots, and device rows in the test log. Supports Member 5. The five assignment roles above stay unchanged. |
 
 ## Session
 

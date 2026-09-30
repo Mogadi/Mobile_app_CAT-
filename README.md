@@ -13,6 +13,7 @@ The app runs in Expo Go. It has no backend. Vendor names and phone numbers in th
 | 3 | Mojtaba Abdalitieef Ahmed | 25/27660 | State and navigation engineer |
 | 4 | Mohammed Osama Hasan | 25/27014 | Device integration and QA lead. Group leader. |
 | 5 | Lazarus Simboya Ira Inyasio | 25/28180 | Release and evidence lead |
+| Support | Feras Saifaddin Ismail Mohammed | 25/27916 | Demonstration evidence support for Member 5: demo video, screenshots, and device test-log rows |
 
 ## Repository
 
@@ -69,7 +70,7 @@ MOB_A1_G03/
 Group number: 03
 i. Group verification code: MOB-G03-7014
 ii. Group leader: Mohammed Osama Hasan, 25/27014
-iii. Group members: Nuzha ZainEl-Abdeen Mohammed Ismail 25/27419; Ehab Fakhralden Mohamed Hamid 25/27950; Mojtaba Abdalitieef Ahmed 25/27660; Mohammed Osama Hasan 25/27014; Lazarus Simboya Ira Inyasio 25/28180
+iii. Group members: Nuzha ZainEl-Abdeen Mohammed Ismail 25/27419; Ehab Fakhralden Mohamed Hamid 25/27950; Mojtaba Abdalitieef Ahmed 25/27660; Mohammed Osama Hasan 25/27014; Lazarus Simboya Ira Inyasio 25/28180; Feras Saifaddin Ismail Mohammed 25/27916 (demonstration evidence support)
 iv. GitHub repository URL: https://github.com/Mogadi/Mobile_app_CAT-
 v. Final commit hash: 62e40a885ff272314485e3782d138df82b19c74a
 vi. Demonstration video link, if the video is not included in the ZIP:
