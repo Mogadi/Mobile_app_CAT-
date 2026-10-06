@@ -63,10 +63,24 @@ function MainTabs() {
 export function RootNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="MainTabs" component={MainTabs} />
-        <Stack.Screen name="Review" component={ReviewScreen} />
-        <Stack.Screen name="InspectionDetail" component={InspectionDetailScreen} />
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          gestureEnabled: true,
+        }}
+      >
+        <Stack.Screen
+          name="MainTabs"
+          component={MainTabs}
+        />
+        <Stack.Screen
+          name="Review"
+          component={ReviewScreen}
+        />
+        <Stack.Screen
+          name="InspectionDetail"
+          component={InspectionDetailScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
